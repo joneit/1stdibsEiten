@@ -1,6 +1,6 @@
-> *This was my solution to 1stdib's challenge.
+> *This was my solution to 1stdib's challenge.*
 > 
-> &mdash; J. Eiten*
+> *&mdash; J. Eiten*
  
 ### 1stdibs.com front-end developer candidate quiz ###
 
