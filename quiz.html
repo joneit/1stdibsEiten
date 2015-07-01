@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!-- quiz.html - Jonathan Eiten -->
+
+<html>
+
+<head>
+
+<!--
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="//documentcloud.github.com/underscore/underscore-min.js"></script>
+	<script type="text/javascript" src="//backbonejs.org/backbone-min.js"></script>
+-->
+
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+	<script type="text/javascript" src="lib/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="lib/underscore.js"></script>
+	<script type="text/javascript" src="lib/backbone.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/quiz.css" />
+
+	<script src="code/minimods.js"></script>
+	<script src="code/template.js"></script>
+	<script src="code/constants.js"></script>
+	<script src="code/item.js"></script>
+	<script src="code/form.js"></script>
+	<script src="code/controls.js"></script>
+	<script src="code/main.js"></script>
+
+<script id="enums" type="application/json">
+{
+	"itemEnums": {
+		"material": ["Wood", "Metal", "Ceramic", "Glass", "Leather"],
+		
+		"measurement": {
+			"unit": {
+				"in": "inches",
+				"cm": "centimeters"
+			},
+			"shape": ["Rectangular", "Circular"]
+		},
+		
+		"condition": {
+			"description": ["Distressed", "Fair", "Good", "Excellent"]
+		}
+	}
+}
+</script>
+		
+<script id="template-value-only" type="text/template"><%-option%></script>
+<script id="template-value-with-key-exposed" type="text/template"><%-option%> (<%-key%>)</script>
+		
+<script id="template-textbox" type="text/template">
+	<label for="<%=id%>"><%-label%></label>
+<% if (!rows || rows === 1) { %>
+	<input type="text" class="form-control" id="<%=id%>" value="<%-value%>" />
+<% } else { %>
+	<textarea class="form-control" id="<%=id%>" rows="<%=rows%>"><%-value%></textarea>
+<% } %>
+</script>
+		
+<script id="template-dropdown" type="text/template">
+	<label for="<%=id%>"><%-label%></label>
+	<select class="form-control" id="<%=id%>">
+		<option value="">Select&hellip;</option>
+<% _(choices).each(function(option, key) { %>
+		<option value="<%-key%>" <%=key===value?'selected':''%>><%=fmt({option:option,key:key})%></option>
+<% }); %>
+	</select>
+</script>
+
+<script id="template-radio-button" type="text/template">
+	<label><%-header.label%> <span><%-header.hint%></span></label>
+	<label class="rad"><%=label%></label>
+<% _(choices).each(function(option, key) { %>
+	<label class="rad"><input type="radio" name="<%=id%>" value="<%-key%>" <%=key===value?'checked':''%>><%=fmt({option:option,key:key})%></label>
+<% }); %>
+</script>
+
+<script id="template-checkbox" type="text/template">
+	<label><input type="checkbox" <%=value===checked?'checked':''%>><%-label%></label>
+	<span><%-hint%></span>
+</script>
+
+<script id="template-textbox-with-addon" type="text/template">
+	<label for="<%=id%>" class="disabled"><%-label%></label>
+	<div class="input-group">
+		<input type="text" class="form-control" id="<%=id%>" disabled>
+		<span class="input-group-addon disabled">in.</span>
+	</div>
+</script>
+</head>
+
+<body>
+	<section></section>
+
+	<div class="measurement"></div>
+	<div class="measurement"></div>
+
+	<section></section>
+
+	<button type="button" class="btn btn-primary">Save</button>
+</body>
+
+</html>
