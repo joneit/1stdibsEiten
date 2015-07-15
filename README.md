@@ -1,8 +1,8 @@
-> *This was my solution to 1stdib's challenge.*
+> *This was my solution to \[1d\]'s challenge.*
 > 
 > *&mdash; J. Eiten*
  
-### 1stdibs.com front-end developer candidate quiz ###
+### \[1d\] front-end developer candidate quiz ###
 
 Using Backbone and jQuery take `item.json` and render a form similar to the form illustrated in `1stdibs_fe_quiz.jpg`.
 
@@ -10,7 +10,7 @@ Certain fields ("materials" dropdown, radio button groups) require enumerations 
 
 #### item.json ####
 
-This file is a very simplified version of the 1stdibs item model. An item is simply a thing that is available for sale on 1stdibs.com. 
+This file is a very simplified version of the \[1d\] item model. An item is simply a thing that is available for sale on 1stdibs.com. 
 
 1stdibs.com private internal APIs return models wrapped in a common wrapper with the model residing in the `result` property.
 
